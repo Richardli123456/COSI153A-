@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "fianalApp",
-    "slug": "fianalApp",
+    "name": "Moments",
+    "slug": "moments",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "fianalapp",
+    "scheme": "moments",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

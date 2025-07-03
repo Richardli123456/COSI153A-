@@ -1,4 +1,14 @@
-# Welcome to your Expo app 👋
+# Moments 📸
+
+A beautiful React Native app for capturing and remembering your special moments with photos, locations, and an interactive map.
+
+## Features
+
+- 📷 **Camera Integration**: Take photos directly in the app
+- 🗺️ **Interactive Map**: View your memories on an interactive map using OpenStreetMap
+- 📍 **Location Tracking**: Automatically capture location data with your memories
+- 📱 **Expo Go Compatible**: Works seamlessly with Expo Go on iOS and Android
+- 🎨 **Beautiful UI**: Clean, modern interface with smooth animations
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
