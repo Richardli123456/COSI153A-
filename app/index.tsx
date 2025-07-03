@@ -82,22 +82,21 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <CameraView style={styles.camera} facing={facing} ref={cameraRef}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-            <Text style={styles.text}>Flip Camera</Text>
-          </TouchableOpacity>
-          <TouchableOpacity 
-            style={[styles.captureButton, isCapturing && styles.capturingButton]} 
-            onPress={takePicture}
-            disabled={isCapturing}
-          >
-            <Text style={styles.captureText}>
-              {isCapturing ? 'Capturing...' : 'Take Photo'}
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </CameraView>
+      <CameraView style={styles.camera} facing={facing} ref={cameraRef} />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
+          <Text style={styles.text}>Flip Camera</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={[styles.captureButton, isCapturing && styles.capturingButton]} 
+          onPress={takePicture}
+          disabled={isCapturing}
+        >
+          <Text style={styles.captureText}>
+            {isCapturing ? 'Capturing...' : 'Take Photo'}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -115,12 +114,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonContainer: {
-    flex: 1,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     backgroundColor: 'transparent',
-    margin: 64,
+    padding: 64,
     justifyContent: 'space-around',
-    alignItems: 'flex-end',
+    alignItems: 'center',
   },
   button: {
     alignSelf: 'flex-end',

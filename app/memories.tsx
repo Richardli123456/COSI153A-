@@ -5,18 +5,18 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
 import React, { useEffect, useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    Dimensions,
-    KeyboardAvoidingView,
-    Modal,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  Alert,
+  Dimensions,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
@@ -139,32 +139,6 @@ export default function MemoriesScreen() {
     } catch (error) {
       console.error('Error picking image:', error);
       Alert.alert('Error', 'Failed to select image. Please try again.');
-    }
-  };
-
-  const takePhoto = async () => {
-    try {
-      // Request camera permission
-      const { status } = await ImagePicker.requestCameraPermissionsAsync();
-      
-      if (status !== 'granted') {
-        Alert.alert('Permission needed', 'Camera permission is required to take photos.');
-        return;
-      }
-
-      // Launch camera
-      const result = await ImagePicker.launchCameraAsync({
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 0.8,
-      });
-
-      if (!result.canceled && result.assets[0]) {
-        setCapturedPhoto(result.assets[0].uri);
-      }
-    } catch (error) {
-      console.error('Error taking photo:', error);
-      Alert.alert('Error', 'Failed to take photo. Please try again.');
     }
   };
 
@@ -404,17 +378,10 @@ export default function MemoriesScreen() {
                 </TouchableOpacity>
               </View>
             ) : (
-              <View style={styles.photoButtons}>
-                <TouchableOpacity style={styles.photoButton} onPress={takePhoto}>
-                  <Ionicons name="camera" size={24} color="#007AFF" />
-                  <Text style={styles.photoButtonText}>Take Photo</Text>
-                </TouchableOpacity>
-                
-                <TouchableOpacity style={styles.photoButton} onPress={pickImage}>
-                  <Ionicons name="images" size={24} color="#007AFF" />
-                  <Text style={styles.photoButtonText}>Choose from Gallery</Text>
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity style={styles.cameraButton} onPress={pickImage}>
+                <Ionicons name="images" size={24} color="#007AFF" />
+                <Text style={styles.cameraButtonText}>Choose from Gallery</Text>
+              </TouchableOpacity>
             )}
           </ScrollView>
         </KeyboardAvoidingView>
@@ -643,28 +610,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#007AFF',
     marginLeft: 8,
-    fontWeight: '500',
-  },
-  photoButtons: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  photoButton: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 2,
-    borderColor: '#007AFF',
-    borderStyle: 'dashed',
-    borderRadius: 8,
-    padding: 16,
-    backgroundColor: 'rgba(0, 122, 255, 0.1)',
-  },
-  photoButtonText: {
-    fontSize: 14,
-    color: '#007AFF',
-    marginLeft: 6,
     fontWeight: '500',
   },
   photoContainer: {
